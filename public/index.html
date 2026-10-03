@@ -3,81 +3,503 @@
 <head>
 <meta charset="utf-8">
 <title>Retro Internet</title>
+
 <style>
-body{background:#fff;color:#000;font-family:"Times New Roman",serif;font-size:16px;margin:0}
-.wrap{width:790px;max-width:92%;margin:42px auto}
-.logo{font-family:Arial,sans-serif;font-size:64px;font-weight:bold;line-height:.9;text-align:center;margin-bottom:26px}
-.r{color:#1245c8}.e{color:#d51b10}.t{color:#d49b00}.r2{color:#168b35}
-.logo-sub{font-family:"Times New Roman",serif;font-size:18px;font-weight:normal;letter-spacing:2px;color:#555;margin-top:4px}
-.searchbox{background:#eee;text-align:center;padding:10px 8px 9px}
-.prompt{margin-bottom:4px}.row{display:flex;justify-content:center;align-items:center;gap:5px}
-#q{width:410px;height:28px;box-sizing:border-box;border:2px solid #777;padding:2px 6px;font:16px "Times New Roman",serif}
-button,select{font:14px "Times New Roman",serif;background:#eee;color:#000;border:1px solid #777;padding:3px 7px}
-button{cursor:pointer}.hint{font-style:italic;margin-top:6px}
-.protocol{text-align:center;margin:14px 0}.protocol button{padding:2px 8px}
-.links{text-align:center;margin:12px 0 35px}.links a{margin:0 4px}
-#status{font-weight:bold;margin:0 0 14px}.result{margin:0 0 18px}
-.result a.title{font-size:18px}.url{font-size:14px;color:#008000;word-break:break-all}
-.desc{margin-top:2px}.footerbox{background:#eee;text-align:center;padding:10px}
-.copyright{text-align:center;margin-top:14px}
-@media(max-width:700px){.wrap{max-width:96%;margin-top:20px}.logo{font-size:50px}.row{flex-wrap:wrap}#q{width:100%;max-width:410px}}
+body{
+  background:#fff;
+  color:#000;
+  font-family:"Times New Roman",serif;
+  font-size:16px;
+  margin:0
+}
+
+.wrap{
+  width:790px;
+  max-width:92%;
+  margin:42px auto
+}
+
+.logo{
+  font-family:Arial,sans-serif;
+  font-size:64px;
+  font-weight:bold;
+  line-height:.9;
+  text-align:center;
+  margin-bottom:26px
+}
+
+.r{color:#1245c8}
+.e{color:#d51b10}
+.t{color:#d49b00}
+.r2{color:#168b35}
+
+.logo-sub{
+  font-family:"Times New Roman",serif;
+  font-size:18px;
+  font-weight:normal;
+  letter-spacing:2px;
+  color:#555;
+  margin-top:4px
+}
+
+.searchbox{
+  background:#eee;
+  text-align:center;
+  padding:10px 8px 9px
+}
+
+.prompt{
+  margin-bottom:4px
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:5px
+}
+
+#q{
+  width:410px;
+  height:28px;
+  box-sizing:border-box;
+  border:2px solid #777;
+  padding:2px 6px;
+  font:16px "Times New Roman",serif
+}
+
+button,
+select{
+  font:14px "Times New Roman",serif;
+  background:#eee;
+  color:#000;
+  border:1px solid #777;
+  padding:3px 7px
+}
+
+button{
+  cursor:pointer
+}
+
+.hint{
+  font-style:italic;
+  margin-top:6px
+}
+
+.protocol{
+  text-align:center;
+  margin:14px 0
+}
+
+.protocol button{
+  padding:2px 8px
+}
+
+.links{
+  text-align:center;
+  margin:12px 0 35px
+}
+
+.links a{
+  margin:0 4px
+}
+
+#status{
+  font-weight:bold;
+  margin:0 0 14px
+}
+
+.result{
+  margin:0 0 18px
+}
+
+.result a.title{
+  font-size:18px
+}
+
+.url{
+  font-size:14px;
+  color:#008000;
+  word-break:break-all
+}
+
+.desc{
+  margin-top:2px
+}
+
+.footerbox{
+  background:#eee;
+  text-align:center;
+  padding:10px
+}
+
+.copyright{
+  text-align:center;
+  margin-top:14px
+}
+
+@media(max-width:700px){
+  .wrap{
+    max-width:96%;
+    margin-top:20px
+  }
+
+  .logo{
+    font-size:50px
+  }
+
+  .row{
+    flex-wrap:wrap
+  }
+
+  #q{
+    width:100%;
+    max-width:410px
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
-<div class="logo"><span class="r">R</span><span class="e">e</span><span class="t">t</span><span class="r2">ro</span>
-<div class="logo-sub">INTERNET</div></div>
 
-<div class="searchbox">
-<div class="prompt">Search the web using Retro Internet!</div>
-<div class="row">
-<input id="q" type="text" autocomplete="off" autofocus>
-<select id="count"><option value="10">10 results</option><option value="20">20 results</option><option value="30">30 results</option></select>
-<button id="searchBtn">Retro Search</button>
-<button id="luckyBtn">I'm feeling lucky</button>
-</div>
-<div class="hint">Index contains retro web pages (soon to be much bigger)</div>
-</div>
+  <div class="logo">
+    <span class="r">R</span>
+    <span class="e">e</span>
+    <span class="t">t</span>
+    <span class="r2">ro</span>
 
-<div class="protocol">Open addresses with:
-<button type="button" onclick="setProtocol('http')">HTTP</button>
-<button type="button" onclick="setProtocol('https')">HTTPS</button>
-</div>
+    <div class="logo-sub">INTERNET</div>
+  </div>
 
-<div class="links">
-<a href="#" onclick="alert('Retro Internet — independent search interface.');return false;">About Retro Internet!</a>
-<br><br>
-<a href="https://web.archive.org/" target="_blank" rel="noopener">Internet Archive</a>
-<a href="/" onclick="location.href='/';return false;">Retro Search</a>
-</div>
+  <div class="searchbox">
 
-<div id="status"></div><div id="results"></div>
+    <div class="prompt">
+      Search the web using Retro Internet!
+    </div>
 
-<div class="footerbox">Get Retro Internet updates monthly!<br>
-<input type="email" placeholder="your e-mail" style="height:24px;box-sizing:border-box">
-<button type="button">Subscribe</button> <a href="#" onclick="alert('Archive is not available yet.');return false;">Archive</a>
-</div>
-<div class="copyright">Copyright © 2026 Retro Internet</div>
+    <div class="row">
+
+      <input
+        id="q"
+        type="text"
+        autocomplete="off"
+        autofocus
+      >
+
+      <select id="count">
+        <option value="10">10 results</option>
+        <option value="20">20 results</option>
+        <option value="30">30 results</option>
+      </select>
+
+      <button id="searchBtn">
+        Retro Search
+      </button>
+
+      <button id="luckyBtn">
+        I'm feeling lucky
+      </button>
+
+    </div>
+
+    <div class="hint">
+      Index contains retro web pages (soon to be much bigger)
+    </div>
+
+  </div>
+
+  <div class="protocol">
+    Open addresses with:
+
+    <button
+      type="button"
+      onclick="setProtocol('http')"
+    >
+      HTTP
+    </button>
+
+    <button
+      type="button"
+      onclick="setProtocol('https')"
+    >
+      HTTPS
+    </button>
+  </div>
+
+  <div class="links">
+
+    <a
+      href="#"
+      onclick="alert('Retro Internet — independent search interface.');return false;"
+    >
+      About Retro Internet!
+    </a>
+
+    <br><br>
+
+    <a
+      href="https://web.archive.org/"
+      target="_blank"
+      rel="noopener"
+    >
+      Internet Archive
+    </a>
+
+    <a
+      href="/"
+      onclick="location.href='/';return false;"
+    >
+      Retro Search
+    </a>
+
+  </div>
+
+  <div id="status"></div>
+
+  <div id="results"></div>
+
+  <div class="footerbox">
+
+    Get Retro Internet updates monthly!
+
+    <br>
+
+    <input
+      type="email"
+      placeholder="your e-mail"
+      style="height:24px;box-sizing:border-box"
+    >
+
+    <button type="button">
+      Subscribe
+    </button>
+
+    <a
+      href="#"
+      onclick="alert('Archive is not available yet.');return false;"
+    >
+      Archive
+    </a>
+
+  </div>
+
+  <div class="copyright">
+    Copyright © 2026 Retro Internet
+  </div>
+
 </div>
 
 <script>
-const API_BASE='https://retro-internet-api.alan-cyber-u.workers.dev';
-const q=document.getElementById('q'),count=document.getElementById('count'),results=document.getElementById('results'),statusBox=document.getElementById('status');
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function setProtocol(p){localStorage.setItem('ri_protocol',p);alert('Preferred protocol: '+p.toUpperCase());}
-async function search(){
- const term=q.value.trim(); if(!term)return;
- statusBox.textContent='Searching the web...'; results.innerHTML='';
- try{
-  const r=await fetch('/api/search?'+new URLSearchParams({q:term,limit:count.value}),{headers:{Accept:'application/json'}});
-  const d=await r.json(); if(!r.ok)throw new Error(d.error||('HTTP '+r.status));
-  statusBox.textContent=d.results?.length?'Retro Internet results for: '+term:'No web results were returned.';
-  results.innerHTML=(d.results||[]).map(x=>`<div class="result"><a class="title" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.title||x.url)}</a><div class="url">${esc(x.url)}</div><div class="desc">${esc(x.description||'')}</div></div>`).join('');
- }catch(e){statusBox.textContent='Search error';results.innerHTML='<div>'+esc(e.message)+'</div>';}
+
+const API_BASE =
+  'https://retro-internet-api.alan-cyber-u.workers.dev';
+
+const q =
+  document.getElementById('q');
+
+const count =
+  document.getElementById('count');
+
+const results =
+  document.getElementById('results');
+
+const statusBox =
+  document.getElementById('status');
+
+
+function esc(s){
+
+  return String(s ?? '')
+    .replace(
+      /[&<>"']/g,
+      c => ({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#39;'
+      }[c])
+    );
+
 }
-document.getElementById('searchBtn').onclick=search;
-q.addEventListener('keydown',e=>{if(e.key==='Enter')search();});
-document.getElementById('luckyBtn').onclick=async()=>{const term=q.value.trim();if(!term)return;const r=await fetch('/api/search?'+new URLSearchParams({q:term,limit:'1'}));const d=await r.json();if(d.results?.[0]?.url)location.href=d.results[0].url;};
+
+
+function setProtocol(p){
+
+  localStorage.setItem(
+    'ri_protocol',
+    p
+  );
+
+  alert(
+    'Preferred protocol: ' +
+    p.toUpperCase()
+  );
+
+}
+
+
+async function search(){
+
+  const term =
+    q.value.trim();
+
+  if(!term){
+    return;
+  }
+
+  statusBox.textContent =
+    'Searching Retro Internet...';
+
+  results.innerHTML = '';
+
+  try{
+
+    const url =
+      API_BASE +
+      '/api/search?' +
+      new URLSearchParams({
+        q:term,
+        limit:count.value
+      });
+
+    const r =
+      await fetch(
+        url,
+        {
+          method:'GET',
+          headers:{
+            'Accept':
+              'application/json'
+          }
+        }
+      );
+
+    const d =
+      await r.json();
+
+    if(!r.ok){
+      throw new Error(
+        d.error ||
+        ('HTTP ' + r.status)
+      );
+    }
+
+    const items =
+      d.results || [];
+
+    statusBox.textContent =
+      items.length
+        ? 'Retro Internet results for: ' + term
+        : 'Your search did not match any documents in the Retro Internet index.';
+
+    results.innerHTML =
+      items.map(
+        x => `
+          <div class="result">
+
+            <a
+              class="title"
+              href="${esc(x.url)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ${esc(x.title || x.url)}
+            </a>
+
+            <div class="url">
+              ${esc(x.url)}
+            </div>
+
+            <div class="desc">
+              ${esc(x.description || '')}
+            </div>
+
+          </div>
+        `
+      ).join('');
+
+  }catch(e){
+
+    statusBox.textContent =
+      'Search error';
+
+    results.innerHTML =
+      '<div>' +
+      esc(e.message) +
+      '</div>';
+
+  }
+
+}
+
+
+document
+  .getElementById('searchBtn')
+  .onclick = search;
+
+
+q.addEventListener(
+  'keydown',
+  e => {
+
+    if(e.key === 'Enter'){
+      search();
+    }
+
+  }
+);
+
+
+document
+  .getElementById('luckyBtn')
+  .onclick = async () => {
+
+    const term =
+      q.value.trim();
+
+    if(!term){
+      return;
+    }
+
+    try{
+
+      const url =
+        API_BASE +
+        '/api/search?' +
+        new URLSearchParams({
+          q:term,
+          limit:'1'
+        });
+
+      const r =
+        await fetch(url);
+
+      const d =
+        await r.json();
+
+      if(
+        d.results &&
+        d.results[0] &&
+        d.results[0].url
+      ){
+
+        location.href =
+          d.results[0].url;
+
+      }
+
+    }catch(e){
+
+      console.error(e);
+
+    }
+
+  };
+
 </script>
+
 </body>
 </html>
